@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: balitskii-homework01-service
+spec:
+  selector:
+    app: balitskii-homework01
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: NodePort

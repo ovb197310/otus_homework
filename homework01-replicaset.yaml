@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: balitskii-homework01-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: balitskii-homework01
+  template:
+    metadata:
+      labels:
+        app: balitskii-homework01
+    spec:
+      containers:
+        - name: balitskii-homework01
+          image: ovb1973/pub_ovb:homework01
+          ports:
+            - containerPort: 8000

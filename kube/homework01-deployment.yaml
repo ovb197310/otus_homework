@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: balitskii-homework01-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: balitskii-homework01
+  template:
+    metadata:
+      labels:
+        app: balitskii-homework01
+    spec:
+      containers:
+        - name: balitskii-homework01
+          image: ovb1973/pub_ovb:homework01-3
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 10
+            periodSeconds: 10

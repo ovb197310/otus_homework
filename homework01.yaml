@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: balitskii-homework01
+  labels:
+    app: balitskii-homework01
+spec:
+  containers:
+    - name: balitskii-homework01
+      image: ovb1973/pub_ovb:homework01
+      ports:
+        - containerPort: 8000
