@@ -15,6 +15,9 @@ spec:
       containers:
         - name: balitskii-homework01
           image: ovb1973/pub_ovb:homework01-3
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://localhost:5432/usersmanagement
           ports:
             - containerPort: 8000
           livenessProbe:
